@@ -1,0 +1,27 @@
+name: 'Hello World'
+description: 'action'
+inputs:
+  version_prefix: 
+    description: 'MINOR, MAJOR, NOVERSION'
+    required: true
+    options: 
+    - MINOR
+    - MAJOR
+    - NOVERSION    
+  version_prefix_mandatory:
+    description: 'true/false'
+    required: true
+    options: 
+    - true
+    - false
+  ticket_prefix:
+    description: 'true/false'
+    required: true
+    default: 'JIRA'
+    options: 
+    - JIRA
+runs:
+  using: "composite"
+  steps:
+    - run: echo ${{ inputs.version_prefix }} ${{ inputs.version_prefix_mandatory }} ${{ inputs.ticket_prefix }}
+      shell: bash
